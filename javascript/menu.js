@@ -1,3 +1,5 @@
+import { urlRoute } from "./route";
+
 // Declare Variables
 const start_btn = document.getElementById("start_btn");
 const continue_btn = document.getElementById("continue_btn");
@@ -12,20 +14,18 @@ start_btn.addEventListener('click', onClickStart);
 continue_btn.addEventListener('click', onClickContinue);
 controlls_btns.forEach(e => e.addEventListener('click', onClickConroller));
 
-
 init();
 
 // Functions
 function onClickStart() {
     // reset scores
     localStorage.removeItem('scores');
-
-    
-    location.href = "/game.html";
+    urlRoute('/game');
+    console.log(1)
 }
 
 function onClickContinue() {
-    location.href = "/game.html";
+    urlRoute('/game');
 }
 
 function onClickConroller(e) {

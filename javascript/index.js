@@ -1,6 +1,7 @@
 import { onClickInputCell } from './utilis.js';
 import Player from './player.js';
 import { playBot } from './_bot.js';
+import { urlRoute } from './route.js';
 
 /* variables */
 export const cells = document.querySelectorAll('.game_content .cell');
@@ -49,7 +50,7 @@ inputs.forEach((element, ind) => {
     })
 });
 
-controll_btns[0].addEventListener('click', () => location.href = "/index.html");
+controll_btns[0].addEventListener('click', () => urlRoute('/'));
 controll_btns[1].addEventListener('click', Restart);
 
 /* 
