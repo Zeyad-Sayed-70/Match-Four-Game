@@ -49,7 +49,7 @@ inputs.forEach((element, ind) => {
     })
 });
 
-controll_btns[0].addEventListener('click', () => location.href = "/menu.html");
+controll_btns[0].addEventListener('click', () => location.href = "/index.html");
 controll_btns[1].addEventListener('click', Restart);
 
 /* 

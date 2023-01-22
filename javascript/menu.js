@@ -21,11 +21,11 @@ function onClickStart() {
     localStorage.removeItem('scores');
 
     
-    location.href = "/index.html";
+    location.href = "/game.html";
 }
 
 function onClickContinue() {
-    location.href = "/index.html";
+    location.href = "/game.html";
 }
 
 function onClickConroller(e) {

@@ -27,7 +27,7 @@ overlay.children[0].addEventListener('click', () => {
     overlay.remove();
 })
 overlay.children[1].addEventListener('click', () => {
-    location.href = '/menu.html';
+    location.href = '/index.html';
 })
 
 /* 
