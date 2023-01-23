@@ -1,4 +1,4 @@
-article {
+#menu_page article {
   margin: 0 auto;
   width: 60%;
   height: 100vh;
@@ -16,19 +16,17 @@ article {
       -ms-flex-direction: column;
           flex-direction: column;
 }
-
-.hero .img {
+#menu_page .hero .img {
   width: 300px;
 }
-.hero img {
+#menu_page .hero img {
   width: 100%;
 }
-.hero h1 {
+#menu_page .hero h1 {
   font-size: var(--font-size-large);
   text-align: center;
 }
-
-.controlls {
+#menu_page .controlls {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -38,7 +36,7 @@ article {
   top: 0;
   left: 0;
 }
-.controlls button {
+#menu_page .controlls button {
   width: 50px;
   height: 50px;
   background-color: #333;
@@ -47,13 +45,13 @@ article {
   padding: .5rem;
   cursor: pointer;
 }
-.controlls button:hover {
+#menu_page .controlls button:hover {
   background-color: #424242;
 }
-.controlls button.active {
+#menu_page .controlls button.active {
   background-color: #000;
 }
-.controlls img {
+#menu_page .controlls img {
   width: 100%;
 }
 

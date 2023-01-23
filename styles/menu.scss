@@ -1,58 +1,56 @@
 
-
-article {
-    margin: 0 auto;
-    width: 60%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-
-
-.hero {
-    .img {
-        width: 300px
+#menu_page {
+    article {
+        margin: 0 auto;
+        width: 60%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
     }
-    img {
-        width: 100%;
+        
+    .hero {
+        .img {
+            width: 300px
+        }
+        img {
+            width: 100%;
+        }
+        h1 {
+            font-size: var(--font-size-large);
+            text-align: center;
+        }
     }
-    h1 {
-        font-size: var(--font-size-large);
-        text-align: center;
-    }
-}
-
-.controlls {
-    display: flex;
-    gap: .25rem;
-    padding: .5rem;
-    position: fixed;
-    top: 0;
-    left: 0;
-
-    button {
-        width: 50px;
-        height: 50px;
-        background-color: #333;
-        border: none;
-        border-radius: .5rem;
+    
+    .controlls {
+        display: flex;
+        gap: .25rem;
         padding: .5rem;
-        cursor: pointer;
-
-        &:hover {
-            background-color: rgb(66, 66, 66);
+        position: fixed;
+        top: 0;
+        left: 0;
+    
+        button {
+            width: 50px;
+            height: 50px;
+            background-color: #333;
+            border: none;
+            border-radius: .5rem;
+            padding: .5rem;
+            cursor: pointer;
+    
+            &:hover {
+                background-color: rgb(66, 66, 66);
+            }
+    
+            &.active {
+                background-color: #000;
+            }
         }
-
-        &.active {
-            background-color: #000;
+    
+        img {
+            width: 100%;
         }
     }
-
-    img {
-        width: 100%;
-    }
-}
-
+}    

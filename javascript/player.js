@@ -15,6 +15,10 @@ export default class Player {
         return this.score;
     }
 
+    setColor(_newColor) {
+        this.color = _newColor;
+    }
+
     getColor() {
         return this.color;
     }

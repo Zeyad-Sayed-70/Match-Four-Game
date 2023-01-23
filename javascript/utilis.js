@@ -19,17 +19,6 @@ export function Start() {
     counter();
 }
 
-/* Start Button (To Play Music and Start Game) */
-const overlay = document.querySelector('.overlay');
-overlay.children[0].addEventListener('click', () => {
-    Start();    
-    playMusic();
-    overlay.remove();
-})
-overlay.children[1].addEventListener('click', () => {
-    location.href = '/index.html';
-})
-
 /* 
     Cell Flow Function
     refers to cell flow animation to target index
@@ -175,3 +164,12 @@ function winCelebrate(winner) {
     }
 }
 
+/* 
+    change Players Color Function
+    swap colors between both players
+    @params (_realPlayerColor: "put player 1 color and it will give to player 2 the other color")
+*/
+export function changePlayersColor(_realPlayerColor) {
+    player_1.setColor(_realPlayerColor);
+    player_2.setColor(_realPlayerColor === 'red' ? 'yellow' : 'red');
+}

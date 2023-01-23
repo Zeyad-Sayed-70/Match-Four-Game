@@ -101,6 +101,17 @@ body {
   background-color: var(--color-variant-red);
 }
 
+#menu_page.active {
+  display: none !important;
+}
+
+#game_page {
+  display: none;
+}
+#game_page.active {
+  display: block !important;
+}
+
 .winner_dialog {
   width: 460px;
   max-width: 90%;

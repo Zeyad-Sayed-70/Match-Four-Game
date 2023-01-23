@@ -90,6 +90,23 @@ body {
     }
 }
 
+// mains pages
+#menu_page {
+    &.active {
+        display: none !important;
+        // display: block !important;
+    }
+}
+
+
+#game_page {
+    display: none;
+    
+    &.active {
+        display: block !important;
+    }
+}
+
 .winner_dialog {
     width: 460px;
     max-width: 90%;

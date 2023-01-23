@@ -1,7 +1,7 @@
-import { onClickInputCell } from './utilis.js';
+import { onClickInputCell, Start } from './utilis.js';
 import Player from './player.js';
 import { playBot } from './_bot.js';
-import { urlRoute } from './route.js';
+import { moveToPage } from './menu.js';
 
 /* variables */
 export const cells = document.querySelectorAll('.game_content .cell');
@@ -37,9 +37,15 @@ export const player_2 = new Player('player 2', selectedColor === 'yellow' ? 'red
 roundCounter_container.style.backgroundColor = player_1.getColor() === 'red' ? '#FF5722' : '#FFC107';
 
 /* Play RealPlayer */
+let timp_counter = 0;
 inputs.forEach((element, ind) => {
     element.addEventListener('click', () => {
         if ( !isMyTurn || Rules.gamePaused ) return;
+
+        if ( timp_counter === 0 ) {
+            Start();
+            timp_counter++;
+        }
         
         isMyTurn = false;
         onClickInputCell(ind);
@@ -50,7 +56,9 @@ inputs.forEach((element, ind) => {
     })
 });
 
-controll_btns[0].addEventListener('click', () => urlRoute('/'));
+controll_btns[0].addEventListener('click', () => {
+    Restart();
+});
 controll_btns[1].addEventListener('click', Restart);
 
 /* 
@@ -88,7 +96,7 @@ export function counter() {
     Next Round Functions
     reset round time and change player round tag
 */
-function nextRound() {
+export function nextRound() {
     time = Rules.roundTime;
     roundCounter.textContent = Rules.roundTime + "s";
 

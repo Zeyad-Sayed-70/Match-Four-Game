@@ -1,4 +1,5 @@
-import { urlRoute } from "./route";
+import { changePlayersColor } from './utilis.js';
+import { nextRound } from './index.js';
 
 // Declare Variables
 const start_btn = document.getElementById("start_btn");
@@ -6,7 +7,7 @@ const continue_btn = document.getElementById("continue_btn");
 const controlls_btns = document.querySelectorAll('.controlls button');
 const media = document.querySelector('audio');
 // const overlay = document.querySelector('.overlay');
-let isMute = JSON.parse(sessionStorage.getItem('mute')) !== null ? JSON.parse(sessionStorage.getItem('mute')) : true;
+let isMute = true;
 
 
 // Listeners
@@ -15,44 +16,6 @@ continue_btn.addEventListener('click', onClickContinue);
 controlls_btns.forEach(e => e.addEventListener('click', onClickConroller));
 
 init();
-
-// Functions
-function onClickStart() {
-    // reset scores
-    localStorage.removeItem('scores');
-    urlRoute('/game');
-    console.log(1)
-}
-
-function onClickContinue() {
-    urlRoute('/game');
-}
-
-function onClickConroller(e) {
-    let element = e.target;
-
-    if ( element.getAttribute('src') !== null )
-        element = e.target.parentElement;
-    
-    if ( element.dataset.select === 'red' ) {
-        controlls_btns[1].classList.add('active');
-        controlls_btns[2].classList.remove('active');
-        sessionStorage.setItem('color', element.dataset.select);
-    }
-
-    if ( element.dataset.select === 'yellow' ) {
-        controlls_btns[2].classList.add('active');
-        controlls_btns[1].classList.remove('active');
-        sessionStorage.setItem('color', element.dataset.select);
-    }
-
-    if ( element.dataset.select === 'sound' ) {
-        controlls_btns[0].classList.toggle('active');
-        isMute = !isMute;
-        sessionStorage.setItem('mute', isMute);
-        playMusic();
-    }
-}
 
 function init() {
     if (!sessionStorage.getItem('color'))
@@ -69,20 +32,60 @@ function init() {
     }
 }
 
-function playMusic() {
-    if ( sessionStorage.getItem('mute') === 'false' || !sessionStorage.getItem('mute') ) {
-        media.play();
-        
-        setInterval(() => {
-            console.log(Math.ceil(media.currentTime))
-            sessionStorage.setItem('musicTime', Math.ceil(media.currentTime));
+function onClickStart() {
+    // reset scores
+    localStorage.removeItem('scores');
+    nextRound();
+    moveToPage('game_page');
+}
 
-            if ( media.paused && (sessionStorage.getItem('mute') === 'false' || !sessionStorage.getItem('mute')) ) {
-                media.load();
-                media.play();
-            }
-        }, 1000)
+function onClickContinue() {
+    nextRound();
+    moveToPage('game_page');
+}
+
+
+export function moveToPage(_page) {
+    const otherPage = document.getElementById(_page);
+    const currPage = document.getElementById(_page === 'menu_page' ? 'game_page' : 'menu_page' );
+
+    if ( _page === 'game_page' ) {
+        currPage.classList.add('active');
+        otherPage.classList.add('active');
     } else {
-        media.pause();
+        currPage.classList.remove('active');
+        otherPage.classList.remove('active');
     }
+}
+
+function onClickConroller(e) {
+    let element = e.target;
+
+    if ( element.getAttribute('src') !== null )
+        element = e.target.parentElement;
+    
+    if ( element.dataset.select === 'red' ) {
+        controlls_btns[1].classList.add('active');
+        controlls_btns[2].classList.remove('active');
+        sessionStorage.setItem('color', element.dataset.select);
+        changePlayersColor('red');
+    }
+
+    if ( element.dataset.select === 'yellow' ) {
+        controlls_btns[2].classList.add('active');
+        controlls_btns[1].classList.remove('active');
+        sessionStorage.setItem('color', element.dataset.select);
+        changePlayersColor('yellow');
+    }
+
+    if ( element.dataset.select === 'sound' ) {
+        controlls_btns[0].classList.toggle('active');
+        isMute = !isMute;
+        playMusic();
+    }
+}
+
+function playMusic() {
+    if ( !isMute ) media.play();
+    else  media.pause();
 }

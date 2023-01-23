@@ -4,13 +4,94 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
+    <title>Match Four Game</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/menu.css">
+    
+    <script defer src="./javascript/init.js"></script>
+    <script defer type="module" src="./javascript/utilis.js"></script>
+    <script defer type="module" src="./javascript/index.js"></script>
+    <script defer type="module" src="./javascript/menu.js"></script>
 </head>
 <body>
-    <div id="content"></div>
-    
-    <script type="module" src="./javascript/route.js"></script>
-    <!-- <script src="./javascript/menu.js"></script> -->
+    <main id="menu_page" class="">
+        <audio src="./music/music.mp3"></audio>
+        <!-- <div class="overlay"><button class="btn_main" data-color="red">Play Game</button></div> -->
+        <div class="controlls">
+            <button data-select="sound"><img src="./asesst/sound.png" alt="mute-sound"/></button>
+            <button data-select="red"><img src="./asesst/red_circle.png" alt="color-select-red"/></button>
+            <button data-select="yellow"><img src="./asesst/yellow_circle.png" alt="color-select-yellow"/></button>
+        </div>
+        <article>
+            <section class="hero">
+                <div class="img"><img src="./asesst/logo.png" alt="game logo"/></div>
+                <h1>Match 4</h1>
+            </section>
+            <section>
+                <button id="start_btn" class="btn_main" data-color="yellow">Start a New Game</button>
+                <button id="continue_btn" class="btn_main" data-color="red">Continue Game</button>
+            </section>
+        </article>
+    </main>
+
+
+    <div class="winner_dialog">
+        <div>
+            <img src="../asesst/medal.png" alt="medal" />
+                <span>Player 1 is Winner</span>
+            <img src="../asesst/medal.png" alt="medal" />
+        </div>
+        <button class="btn_main" data-color="red">Done</button>
+    </div>
+    <main id="game_page" class="main-page">
+        <!-- <div class="overlay">
+            <button class="btn_main" data-color="red">Start</button>
+            <button class="btn_main" data-color="yellow">Menu</button>
+        </div> -->
+        <audio src="./music/music.mp3"></audio>
+        <!-- Game Container -->
+        <div class="container">
+            <article class="game_container">
+                <section class="player_score_1 bs">
+                    <div><img src="./asesst/gentleman.png" alt="gentleman"/></div>
+                    <span>player 1</span>
+                    <h1>0</h1>
+                </section>
+                <section class="game">
+                    <div class="controllers">
+                        <button data-duty="menu">menu</button>
+                        <div><img src="./asesst/logo.png" alt="logo" /></div>
+                        <button data-duty="restart">restart</button>
+                    </div>
+                    <!-- Players Scores (medium & small screens) -->
+                    <div class="players_score">
+                        <section class="player_score_1">
+                            <div><img src="./asesst/gentleman.png" alt="gentleman"/></div>
+                            <span>player 1</span>
+                            <h1>0</h1>
+                        </section>
+                        <section class="player_score_2">
+                            <div><img src="./asesst/bot.png" alt="bot"/></div>
+                            <span>player 2</span>
+                            <h1>0</h1>
+                        </section>
+                    </div>
+                    <div class="game_content">
+                        <div class="turn_countdown">
+                            <span>player 1's turn</span>
+                            <h1>0s</h1>
+                        </div>
+                    </div>
+                </section>
+                <section class="player_score_2 bs">
+                    <div><img src="./asesst/bot.png" alt="bot"/></div>
+                    <span>player 2</span>
+                    <h1>0</h1>
+                </section>
+            </article>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/party-js@latest/bundle/party.min.js"></script>
 </body>
 </html>
