@@ -127,10 +127,9 @@ function winCelebrate(winner) {
         // alert(`Congratulations, ${winner} is Winner!!`);
         // pause the game
         Rules.gamePaused = true;
-        
+        console.log(Rules.gamePaused)
         // +1 score to winner
         scores.player_1 += 1;
-        console.log(scores)
         
         // save new scores
         localStorage.setItem('scores', JSON.stringify(scores));
@@ -147,10 +146,9 @@ function winCelebrate(winner) {
         // alert(`Congratulations, ${winner} is Winner!!`);
         // pause the game
         Rules.gamePaused = true;
-        
+        console.log(Rules.gamePaused)
         // +1 score to winner
         scores.player_2 += 1;
-        console.log(scores)
         
         // save new scores
         localStorage.setItem('scores', JSON.stringify(scores));

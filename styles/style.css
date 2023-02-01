@@ -93,12 +93,20 @@ body {
 .btn_main[data-color=yellow]:hover {
   background-color: var(--color-variant-yellow);
 }
+.btn_main[data-color=yellow]:focus {
+  box-shadow: 0px 1px 2px 1px #333;
+  transform: translateY(5px);
+}
 .btn_main[data-color=red] {
   background-color: var(--color-red);
   color: #fff;
 }
 .btn_main[data-color=red]:hover {
   background-color: var(--color-variant-red);
+}
+.btn_main[data-color=red]:focus {
+  box-shadow: 0px 1px 2px 1px #333;
+  transform: translateY(5px);
 }
 
 #menu_page.active {

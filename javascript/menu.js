@@ -1,5 +1,5 @@
 import { changePlayersColor } from './utilis.js';
-import { nextRound } from './index.js';
+import { nextRound, player_score_1, player_score_2 } from './index.js';
 
 // Declare Variables
 const start_btn = document.getElementById("start_btn");
@@ -9,13 +9,13 @@ const media = document.querySelector('audio');
 // const overlay = document.querySelector('.overlay');
 let isMute = true;
 
+init();
 
 // Listeners
 start_btn.addEventListener('click', onClickStart);
 continue_btn.addEventListener('click', onClickContinue);
 controlls_btns.forEach(e => e.addEventListener('click', onClickConroller));
 
-init();
 
 function init() {
     if (!sessionStorage.getItem('color'))
@@ -34,9 +34,15 @@ function init() {
 
 function onClickStart() {
     // reset scores
-    localStorage.removeItem('scores');
-    nextRound();
-    moveToPage('game_page');
+    localStorage.setItem('scores', JSON.stringify({player_1: 0, player_2: 0}));
+
+    // set scores display to 0
+    for (let i = 0; i < 2; i++) {
+        player_score_1[i].textContent = 0;
+        player_score_2[i].textContent = 0;
+    }
+    
+    onClickContinue();
 }
 
 function onClickContinue() {
